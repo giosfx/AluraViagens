@@ -3,4 +3,7 @@
     <string name="titulo_main">Especiais</string>
     <string name="subtitulo_main">Brasil</string>
     <string name="foto_descricao">Foto ilustrativa do local</string>
+    <string name="resumo_pacote_descricao_imagem">Imagem ilustrativa do local</string>
+    <string name="resumo_pacote_preco_final">Preço final:</string>
+    <string name="resumo_pacote_button_realizar_pagamento">realizar pagamento</string>
 </resources>

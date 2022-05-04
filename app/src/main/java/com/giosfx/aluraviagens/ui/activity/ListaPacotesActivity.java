@@ -1,5 +1,6 @@
 package com.giosfx.aluraviagens.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -23,6 +24,8 @@ public class ListaPacotesActivity extends AppCompatActivity {
 
         setTitle(TITULO_APPBAR);
         configurarLista();
+
+        startActivity(new Intent(this, ResumoPacoteActivity.class));
     }
 
     private void configurarLista() {

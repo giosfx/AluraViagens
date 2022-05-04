@@ -9,14 +9,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.giosfx.aluraviagens.util.DiasUtil;
+import com.giosfx.aluraviagens.util.MoedaUtil;
 import com.giosfx.aluraviagens.R;
+import com.giosfx.aluraviagens.util.ResourceUtil;
 import com.giosfx.aluraviagens.model.Pacote;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.List;
-import java.util.Locale;
 
 public class ListaPacotesAdapter extends BaseAdapter {
 
@@ -66,20 +66,13 @@ public class ListaPacotesAdapter extends BaseAdapter {
 
     private String obterMoedaLocal(Pacote pacote) {
         BigDecimal precoDoPacote = pacote.getPreco();
-        NumberFormat formatoBrasileiro = DecimalFormat
-                .getCurrencyInstance(new Locale("pt", "br"));
-        String moedaBrasileira = formatoBrasileiro.format(precoDoPacote);
-        return moedaBrasileira;
+        return MoedaUtil.formatarMoedaLocal(precoDoPacote);
     }
 
     private void definirDias(View viewCriada, Pacote pacote) {
         TextView dias = viewCriada.findViewById(R.id.item_pacote_dias);
         int quantidadeDias = pacote.getDias();
-        if (quantidadeDias > 1) {
-            dias.setText(quantidadeDias + " dias");
-        } else {
-            dias.setText(quantidadeDias + " dia");
-        }
+        dias.setText(DiasUtil.formatarDias(quantidadeDias));
     }
 
     private void definirImagem(View viewCriada, Pacote pacote) {
@@ -89,10 +82,7 @@ public class ListaPacotesAdapter extends BaseAdapter {
     }
 
     private Drawable obterDrawable(Pacote pacote) {
-        int identifier = context.getResources()
-                .getIdentifier(pacote.getImagem(), "drawable", context.getPackageName());
-        Drawable drawable = context.getDrawable(identifier);
-        return drawable;
+        return ResourceUtil.obterDrawable(context.getApplicationContext(), pacote.getImagem());
     }
 
     private void definirLocal(View viewCriada, Pacote pacote) {
