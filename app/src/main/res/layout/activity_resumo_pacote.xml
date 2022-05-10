@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activity.ResumoPacoteActivity">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/resumo_pacote_imagem"
@@ -12,7 +11,7 @@
         android:layout_height="140dp"
         android:contentDescription="@string/resumo_pacote_descricao_imagem"
         android:scaleType="centerCrop"
-        android:src="@drawable/sao_paulo_sp"
+        tools:src="@drawable/sao_paulo_sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
